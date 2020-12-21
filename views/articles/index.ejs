@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Lonely Planet</title>
+	</head>
+	<body>
+		<a href="articles/create">Create new</a>
+		<div>
+			<p><%= articles.length %></p>
+			<% articles.forEach(article => { %>
+			<div>
+				<h1><%= article.title %></h1>
+				<p><%= article.description %></p>
+				<p><%= article.timestamp.toDateString() %></p>
+				<p><%= article.category %></p>
+				<img src=<%= article.image %> />
+				<a href="">Read More</a>
+				<a href="">Edit</a>
+				<a href="">Delete</a>
+			</div>
+			<% }) %>
+		</div>
+	</body>
+</html>
