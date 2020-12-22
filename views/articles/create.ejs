@@ -1,26 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create New Article | Lonely Corner</title>
-</head>
-<body>
-    <h1>Create Articles</h1>
-    <form action="/articles" method="POST">
-        <label>Title</label>
-        <input required name="title" id="title" type="text">
-        <label>Description</label>
-        <textarea required name="description" id="description" cols="30" rows="10"></textarea>
-        <label>Category</label>
-        <input required name="category" id="category" type="text">
-        <label>Image URL</label>
-        <input required name="image-url" id="image-url" type="text">
-        <label>Article</label>
-        <textarea required name="article" id="article" cols="30" rows="10"></textarea>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Create New Article | Lonely Corner</title>
+	</head>
+	<body>
+		<h1>Create Articles</h1>
+		<form action="/articles" method="POST">
+			<label>Title</label>
+			<input name="title" id="title" type="text" />
+			<label>Description</label>
+			<textarea
+				name="description"
+				id="description"
+				cols="30"
+				rows="10"
+			></textarea>
+			<label>Category</label>
+			<input name="category" id="category" type="text" />
+			<label>Image URL</label>
+			<input name="image" id="image" type="text" />
+			<label>Article</label>
+			<textarea name="article" id="article" cols="30" rows="10"></textarea>
 
-        <a href="/articles">Cancel</a>
-        <button type="submit">Save</button>
-    </form>
-</body>
+			<a href="/articles">Cancel</a>
+			<button type="submit">Save</button>
+		</form>
+	</body>
 </html>
