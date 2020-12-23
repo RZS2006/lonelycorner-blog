@@ -3,26 +3,61 @@ const Article = require('./../models/article');
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-	const articles = [
-		{
-			title: 'Titile 1',
-			description: 'Desc 1',
-			timestamp: new Date(),
-			category: 'Cooking',
-			image:
-				'https://helpx.adobe.com/content/dam/help/en/stock/how-to/visual-reverse-image-search/jcr_content/main-pars/image/visual-reverse-image-search-v2_intro.jpg',
-		},
-		{
-			title: 'Titile 2',
-			description: 'Desc 2',
-			timestamp: new Date(),
-			category: 'Tree',
-			image:
-				'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg',
-		},
-	];
+router.get('/', async (req, res) => {
+	const articles = await Article.find().sort({ timestamp: 'desc' });
 	res.render('articles/index', { articles: articles });
+});
+
+router.get('/create', (req, res) => {
+	res.render('articles/create', { article: new Article() });
+});
+
+router.get('/edit/:id', async (req, res) => {
+	try {
+		const article = await Article.findById(req.params.id);
+		if (article == null) res.redirect('/articles');
+		res.render('articles/edit', { article: article });
+	} catch (err) {
+		console.log(err);
+		res.redirect('/articles');
+	}
+});
+
+router.get('/:id', async (req, res) => {
+	try {
+		const article = await Article.findById(req.params.id);
+		if (article == null) res.redirect('/articles');
+		console.log('This is the article');
+		console.log(article);
+		res.render('articles/read-more', { article: article });
+	} catch (err) {
+		console.log(err);
+		res.redirect('/articles');
+	}
+});
+
+router.put('/:id', async (req, res) => {
+	const article = new Article({
+		title: req.body.title,
+		description: req.body.description,
+		category: req.body.category,
+		image: req.body.image,
+		article: req.body.article,
+		timestamp: new Date(),
+	});
+
+	try {
+		const savedArticle = await article.save();
+		res.redirect(`articles/${savedArticle.id}`);
+	} catch (err) {
+		res.redirect('articles/edit', { article: article });
+		console.log(err);
+	}
+});
+
+router.delete('/:id', async (req, res) => {
+	await Article.findByIdAndDelete(req.params.id);
+	res.redirect('articles');
 });
 
 router.post('/', async (req, res) => {
@@ -36,15 +71,12 @@ router.post('/', async (req, res) => {
 	});
 
 	try {
-		await article.save();
-		res.redirect('articles');
+		const savedArticle = await article.save();
+		res.redirect(`articles/${savedArticle.id}`);
 	} catch (err) {
+		res.redirect('articles/create', { article: article });
 		console.log(err);
 	}
-});
-
-router.get('/create', (req, res) => {
-	res.render('articles/create');
 });
 
 module.exports = router;

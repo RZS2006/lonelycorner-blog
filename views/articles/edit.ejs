@@ -3,10 +3,10 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Create New Article | Lonely Corner</title>
+		<title>edit Article | Lonely Corner</title>
 	</head>
 	<body>
-		<h1>Create Articles</h1>
+		<h1>Edit This article</h1>
 		<form action="/articles" method="POST">
 			<label>Title</label>
 			<input
@@ -40,7 +40,9 @@
 			>
 
 			<a href="/articles">Cancel</a>
-			<button type="submit">Save</button>
+			<form method="POST" action="/articles/<%= article.id %>?_method=PUT">
+				<button type="submit">Update</button>
+			</form>
 		</form>
 	</body>
 </html>
