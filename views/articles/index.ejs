@@ -4,8 +4,11 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Lonely Planet</title>
+		<link rel="stylesheet" href="css/header.css" />
+		<link rel="stylesheet" href="css/main.css" />
 	</head>
 	<body>
+		<%- include("./../_header.ejs") %>
 		<a href="articles/create">Create new</a>
 		<div>
 			<p><%= articles.length %></p>
@@ -15,7 +18,7 @@
 				<p><%= article.description %></p>
 				<p><%= article.timestamp.toDateString() %></p>
 				<p><%= article.category %></p>
-				<img src="<%= article.image %>" />
+				<p>image is <%= article.image %></p>
 				<a href="/articles/<%= article.id %>">Read More</a>
 				<a href="/articles/edit/<%= article.id %> ">Edit</a>
 				<form

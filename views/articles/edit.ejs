@@ -7,7 +7,7 @@
 	</head>
 	<body>
 		<h1>Edit This article</h1>
-		<form action="/articles" method="POST">
+		<form method="POST" action="/articles/<%= article.id %>?_method=PUT">
 			<label>Title</label>
 			<input
 				value="<%= article.title  %>"
@@ -40,8 +40,7 @@
 			>
 
 			<a href="/articles">Cancel</a>
-			<form method="POST" action="/articles/<%= article.id %>?_method=PUT">
-				<button type="submit">Update</button>
+			<button type="submit">Update</button>
 			</form>
 		</form>
 	</body>

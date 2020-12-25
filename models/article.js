@@ -1,3 +1,5 @@
+// lonelyplanet-blog | models/article.js
+
 const mongoose = require('mongoose');
 
 const articleSchema = new mongoose.Schema({
@@ -21,6 +23,13 @@ const articleSchema = new mongoose.Schema({
 	timestamp: {
 		type: Date,
 		default: Date.now,
+	},
+	edited: {
+		type: Boolean,
+		required: true,
+	},
+	lastEdited: {
+		type: Date,
 	},
 });
 
