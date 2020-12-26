@@ -1,34 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
-
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-
-html {
-	font-size: 62.5%;
-}
-
-body {
-	background-color: #fafafa;
-	font-family: 'Montserrat', sans-serif;
-}
-
-.container {
-	width: 85%;
-	height: inherit;
-	margin: 0 auto;
-}
-
-a {
-	text-decoration: none;
-	color: unset;
-}
-
 .header {
 	height: 61.2px;
-	background-color: black;
+	background-color: var(--black-primary);
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
 }
 
 .header__flex-container {
@@ -42,7 +18,7 @@ a {
 	text-transform: uppercase;
 	letter-spacing: 0.1em;
 	font-size: 1.8rem;
-	font-weight: 600;
+	font-weight: --var(--fw-semibold);
 	cursor: pointer;
 }
 
@@ -63,21 +39,40 @@ a {
 .header__nav-link a {
 	color: white;
 	font-size: 1.6rem;
-	font-weight: 600;
+	font-weight: var(--fw-semibold);
 }
 
 .header__nav-link:not(.header__nav-link--button) a:hover {
-	color: rgb(230, 230, 230);
-	transition: 200ms;
+	color: var(--white-hover);
+	transition: var(--transition);
 }
 
 .header__nav-link--button {
-	background-color: #3c7eff;
+	background-color: var(--lightblue-primary);
 	padding: 0.8rem 1.6rem;
 	border-radius: 5px;
 }
 
 .header__nav-link--button:hover {
-	background-color: #2562db;
-	transition: 200ms;
+	background-color: var(--lightblue-hover);
+	transition: var(--transition);
+}
+
+/* Tablet Media Query */
+@media (max-width: 768px) {
+	.header__logo {
+		font-size: 1.6rem;
+	}
+
+	.header__nav-link {
+		margin-left: 1.4rem;
+	}
+
+	.header__nav-link a {
+		font-size: 1.4rem;
+	}
+
+	.header__nav-link--button {
+		padding: 0.8rem 1.2rem;
+	}
 }

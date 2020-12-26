@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>edit Article | Lonely Corner</title>
+		<%- include("./../_head-tags.ejs") %>
+		<title>Edit Article | Lonely Corner</title>
+		<link rel="stylesheet" href="/css/main.css" />
 	</head>
 	<body>
+		<%- include("./../_header.ejs") %>
 		<h1>Edit This article</h1>
 		<form method="POST" action="/articles/<%= article.id %>?_method=PUT">
 			<label>Title</label>
@@ -41,7 +42,6 @@
 
 			<a href="/articles">Cancel</a>
 			<button type="submit">Update</button>
-			</form>
 		</form>
 	</body>
 </html>

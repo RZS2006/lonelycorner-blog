@@ -1,34 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Lonely Planet</title>
-		<link rel="stylesheet" href="css/header.css" />
-		<link rel="stylesheet" href="css/main.css" />
+		<%- include("./../_head-tags.ejs") %>
+		<title>Lonely Corner</title>
+		<link rel="stylesheet" href="/css/index.css" />
 	</head>
 	<body>
 		<%- include("./../_header.ejs") %>
-		<a href="articles/create">Create new</a>
-		<div>
-			<p><%= articles.length %></p>
-			<% articles.forEach(article => { %>
-			<div>
-				<h1><%= article.title %></h1>
-				<p><%= article.description %></p>
-				<p><%= article.timestamp.toDateString() %></p>
-				<p><%= article.category %></p>
-				<p>image is <%= article.image %></p>
-				<a href="/articles/<%= article.id %>">Read More</a>
-				<a href="/articles/edit/<%= article.id %> ">Edit</a>
-				<form
-					method="POST"
-					action="/articles/<%= article.id %>?_method=DELETE"
-				>
-					<button type="submit">Delete</button>
-				</form>
+		<div class="articles-page">
+			<div class="container">
+				<div class="articles__article-amount-container">
+					<span class="articles__article-amount">
+						<%= articles.length %> blog articles found
+					</span>
+				</div>
+				<div class="articles__grid-container">
+					<% articles.forEach(article => { %>
+					<article class="article__article-card">
+						<div class="article-card__image-container">
+							<img
+								class="article-card__image"
+								src="https://img.freepik.com/free-vector/stylish-hexagonal-line-pattern-background_1017-19742.jpg?size=626&ext=jpg"
+							/>
+						</div>
+						<div class="article-card__info-container">
+							<span>
+								<%= article.category %> ·
+								<%=article.timestamp.toDateString() %>
+							</span>
+							<h2><%= article.title %></h2>
+							<p><%= article.description %></p>
+							<a href="/articles/<%= article.id %>">Read More</a>
+						</div>
+
+						<!-- <p>image is <%= article.image %></p>
+						<a href="/articles/<%= article.id %>">Read More</a>
+						<a href="/articles/edit/<%= article.id %> ">Edit</a>
+						<form
+							method="POST"
+							action="/articles/<%= article.id %>?_method=DELETE"
+						>
+							<button type="submit">Delete</button>
+						</form> -->
+					</article>
+					<% }) %>
+				</div>
 			</div>
-			<% }) %>
 		</div>
 	</body>
 </html>

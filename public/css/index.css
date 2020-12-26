@@ -1,0 +1,9 @@
+.articles__grid-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	gap: 2rem;
+}
+
+.articles__article-card {
+	width: 100%;
+}
