@@ -9,11 +9,16 @@
 :root {
 	--black-primary: black;
 	--lightblue-primary: #3c7eff;
+	--red-primary: #ff4141;
 
+	--grey-text: #808080;
+
+	--black-hover: rgb(49, 49, 49);
 	--white-hover: rgb(230, 230, 230);
 	--lightblue-hover: #2562db;
+	--red-hover: #e22b2b;
 
-	--white-bg: #fafafa;
+	--white-bg: #f5f5f5;
 
 	--fw-regular: 400;
 	--fw-semibold: 600;
@@ -27,6 +32,11 @@ html {
 
 body {
 	background-color: var(--white-bg);
+	min-height: 100vh;
+	font-family: 'Montserrat', sans-serif;
+}
+
+button {
 	font-family: 'Montserrat', sans-serif;
 }
 

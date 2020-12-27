@@ -16,21 +16,27 @@
 				</div>
 				<div class="articles__grid-container">
 					<% articles.forEach(article => { %>
-					<article class="article__article-card">
+					<article class="articles__article-card">
 						<div class="article-card__image-container">
 							<img
 								class="article-card__image"
-								src="https://img.freepik.com/free-vector/stylish-hexagonal-line-pattern-background_1017-19742.jpg?size=626&ext=jpg"
+								src="https://shotkit.com/wp-content/uploads/2020/07/portrait-orientation.jpg"
 							/>
 						</div>
 						<div class="article-card__info-container">
-							<span>
+							<span class="article-card__tags">
 								<%= article.category %> ·
 								<%=article.timestamp.toDateString() %>
 							</span>
-							<h2><%= article.title %></h2>
-							<p><%= article.description %></p>
-							<a href="/articles/<%= article.id %>">Read More</a>
+							<h2 class="article-card__title"><%= article.title %></h2>
+							<p class="article-card__description">
+								<%= article.description %>
+							</p>
+							<a
+								class="article-card__link"
+								href="/articles/<%= article.id %>"
+								>Read More</a
+							>
 						</div>
 
 						<!-- <p>image is <%= article.image %></p>
