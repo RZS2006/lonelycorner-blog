@@ -2,46 +2,26 @@
 <html lang="en">
 	<head>
 		<%- include("./../_head-tags.ejs") %>
-		<title>Create Article | Lonely Corner</title>
-		<link rel="stylesheet" href="/css/main.css" />
+		<title><%= title %> | Lonely Corner</title>
+		<link rel="stylesheet" href="/css/create-and-edit.css" />
 	</head>
 	<body>
 		<%- include("./../_header.ejs") %>
-		<h1>Create Articles</h1>
-		<form action="/articles" method="POST">
-			<label>Title</label>
-			<input
-				value="<%= article.title  %>"
-				required
-				name="title"
-				id="title"
-				type="text"
-			/>
-			<label>Description</label>
-			<textarea name="description" id="description" cols="30" rows="10">
-<%= article.description  %></textarea
-			>
-			<label>Category</label>
-			<input
-				value="<%= article.category %>"
-				name="category"
-				id="category"
-				type="text"
-			/>
-			<label>Image URL</label>
-			<input
-				value="<%= article.image  %>"
-				name="image"
-				id="image"
-				type="text"
-			/>
-			<label>Article</label>
-			<textarea required name="article" id="article" cols="30" rows="10">
-<%= article.article  %></textarea
-			>
-
-			<a href="/articles">Cancel</a>
-			<button type="submit">Save</button>
-		</form>
+		<div class="edit-and-create-page create-page">
+			<div class="container">
+				<div class="form-container">
+					<div class="white-form-background">
+						<h1 class="form-container-title">Create Article</h1>
+						<form class="form" action="/articles" method="POST">
+							<%- include("./../_form-fields.ejs") %>
+							<div class="button-container">
+								<a class="cancel-btn" href="/articles">Cancel</a>
+								<button class="submit-btn" type="submit">Save</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>

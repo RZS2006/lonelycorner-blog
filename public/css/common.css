@@ -11,7 +11,7 @@
 	--lightblue-primary: #3c7eff;
 	--red-primary: #ff4141;
 
-	--grey-text: #808080;
+	--grey-text: #555555;
 
 	--black-hover: rgb(49, 49, 49);
 	--white-hover: rgb(230, 230, 230);
@@ -36,7 +36,9 @@ body {
 	font-family: 'Montserrat', sans-serif;
 }
 
-button {
+button,
+input,
+textarea {
 	font-family: 'Montserrat', sans-serif;
 }
 

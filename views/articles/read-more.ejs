@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<%- include("./../_head-tags.ejs") %>
-		<title>Read Article | Lonely Corner</title>
+		<title><%= title %> | Lonely Corner</title>
 		<link rel="stylesheet" href="/css/read-more.css" />
 	</head>
 	<body>
@@ -11,7 +11,8 @@
 			<div class="readmore__cover-image-container">
 				<img
 					class="readmore__cover-image"
-					src="https://shotkit.com/wp-content/uploads/2020/07/portrait-orientation.jpg"
+					src="<%= article.image %>"
+					onerror="this.src='https://img.freepik.com/free-vector/stylish-hexagonal-line-pattern-background_1017-19742.jpg?size=626&ext=jpg'"
 				/>
 				<div class="fade"></div>
 			</div>
@@ -22,7 +23,7 @@
 							>Back to articles</a
 						>
 						<div class="article-text__titlebutton-container">
-							<h1 class="article-text__title"><%= article.title %></h1>
+							<h1 class="article-text__title"><%= article.title.trim() %></h1>
 							<div class="article-text__button-container">
 								<button class="edit-btn">
 									<a href="/articles/edit/<%= article.id %> ">Edit</a>
@@ -38,11 +39,14 @@
 							</div>
 						</div>
 						<div class="tags">
-							<span><%= article.category %></span>
+							<% if (article.category.trim().length > 0) { %> 
+								<span><%= article.category.trim() %></span>
+							<% } %> 	
+							•
 							<span>
 								Written on <%= article.timestamp.toDateString() %>
 							</span>
-							<% if (article.edited) { %>
+							<% if (article.edited) { %> •
 							<span>
 								Last Edited on <%= article.lastEdited.toDateString() %>
 							</span>
@@ -51,11 +55,8 @@
 					</div>
 					<div class="article-text__divider"></div>
 					<div class="article-text__article">
-						<p><%= article.article %></p>
+						<p><%= article.article.trim() %></p>
 					</div>
-					<% if (article.edited) { %>
-					<p>Last Edited on <%= article.lastEdited.toDateString() %></p>
-					<% } %>
 				</div>
 			</div>
 		</div>

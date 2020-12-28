@@ -26,7 +26,7 @@
 .readmore__article-text-container {
 	position: relative;
 	background-color: white;
-	padding: 4rem;
+	padding: 4rem 6rem;
 	border-radius: 10px 10px 0 0;
 	margin-top: -10rem;
 	min-height: calc(100vh - 61.2px - 500px + 10rem);
@@ -75,6 +75,7 @@
 .tags span {
 	font-size: 1.4rem;
 	font-family: sans-serif;
+	color: var(--grey-text);
 }
 
 .backtoall-link:hover {
@@ -96,6 +97,7 @@
 .article-text__article p {
 	font-size: 1.6rem;
 	font-family: sans-serif;
+	white-space: pre-line;
 }
 
 @media (max-width: 768px) {

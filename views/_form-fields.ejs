@@ -1,0 +1,54 @@
+<label class="labels" for="title">Title *</label>
+<input
+	class="inputs"
+	value="<%= article.title  %>"
+	required
+	name="title"
+	id="title"
+	type="text"
+	autocomplete="off"
+	maxlength="100"
+/>
+<label class="labels" for="description">Description</label>
+<textarea
+	class="inputs"
+	name="description"
+	id="description"
+	cols="30"
+	rows="3"
+	autocomplete="off"
+	maxlength="280"
+>
+<%= article.description  %>
+</textarea>
+<label class="labels" for="category">Category</label>
+<input
+	class="inputs"
+	value="<%= article.category %>"
+	name="category"
+	id="category"
+	type="text"
+	autocomplete="off"
+	maxlength="20"
+/>
+<label class="labels" for="image">Image URL</label>
+<input
+	class="inputs"
+	value="<%= article.image  %>"
+	name="image"
+	id="image"
+	type="text"
+	autocomplete="off"
+	pattern="^https?://(?:[a-z0-9\-]+\.)+[a-z]{2,6}(?:/[^/#?]+)+\.(?:jpg|gif|png)"
+	title="JPEG or PNG image URLs"
+/>
+<label class="labels" for="article">Article *</label>
+<textarea
+	class="inputs"
+	required
+	name="article"
+	id="article"
+	cols="30"
+	rows="15"
+	autocomplete="off"
+><%= article.article %></textarea>

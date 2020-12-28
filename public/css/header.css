@@ -48,13 +48,13 @@
 	transition: var(--transition);
 }
 
-.header__nav-link--button {
+.header__nav-link--button a {
 	background-color: var(--lightblue-primary);
 	padding: 0.8rem 1.6rem;
 	border-radius: 5px;
 }
 
-.header__nav-link--button:hover {
+.header__nav-link--button a:hover {
 	background-color: var(--lightblue-hover);
 	transition: var(--transition);
 }
@@ -73,7 +73,7 @@
 		font-size: 1.4rem;
 	}
 
-	.header__nav-link--button {
+	.header__nav-link--button a {
 		padding: 0.8rem 1.2rem;
 	}
 }

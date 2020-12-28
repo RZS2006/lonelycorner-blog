@@ -12,11 +12,14 @@ const router = express.Router();
 // Routes
 router.get('/', async (req, res) => {
 	const articles = await Article.find().sort({ timestamp: 'desc' });
-	res.render('articles/index', { articles: articles });
+	res.render('articles/index', { articles: articles, title: 'Lonely Corner' });
 });
 
 router.get('/create', (req, res) => {
-	res.render('articles/create', { article: new Article() });
+	res.render('articles/create', {
+		article: new Article(),
+		title: 'Create New Article',
+	});
 });
 
 router.get('/edit/:id', async (req, res) => {
@@ -26,7 +29,10 @@ router.get('/edit/:id', async (req, res) => {
 		} else {
 			const article = await Article.findById(req.params.id);
 			if (article == null) res.redirect('/articles');
-			res.render('articles/edit', { article: article });
+			res.render('articles/edit', {
+				article: article,
+				title: `Edit ${article.title}`,
+			});
 		}
 	} catch (err) {
 		console.log(err);
@@ -41,7 +47,10 @@ router.get('/:id', async (req, res) => {
 		} else {
 			const article = await Article.findById(req.params.id);
 			if (article == null) res.redirect('/articles');
-			res.render('articles/read-more', { article: article });
+			res.render('articles/read-more', {
+				article: article,
+				title: article.title,
+			});
 		}
 	} catch (err) {
 		console.log(err);
